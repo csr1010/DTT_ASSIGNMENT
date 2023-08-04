@@ -13,7 +13,8 @@ export default defineComponent({
 
     const houseId = route.params.houseId;
 
-    const updatedHouse = computed(() => {
+   const updatedHouse = computed(async () => {
+      await store.fetchHouses();
       return store.houses.find((house) => house.id === parseInt(houseId));
     });
 
